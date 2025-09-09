@@ -2,6 +2,8 @@
 
 **The First Native Cross-Chain Yield Optimizer for Polkadot Ecosystem**
 
+Slides Link - https://www.canva.com/design/DAGYOsKb3wI/v7n-oo_vG6__2H0r3SQIig/edit?utm_content=DAGYOsKb3wI
+
 ## 📖 Table of Contents
 
 - [🎯 Project Overview](#-project-overview)
