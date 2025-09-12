@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import { PrivyProvider } from "@privy-io/react-auth";
+import { PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth";
 import { defineChain } from "viem";
 import { addRpcUrlOverrideToChain } from "@privy-io/chains";
-
 export const PassetHub = defineChain({
   id: 420420422,
   name: "PassetHub",
@@ -34,7 +33,7 @@ const supportedChains = [
   ),
 ];
 
-const loginMethods = ["email", "wallet", "google"] as const;
+let loginMethods = ["email", "wallet"];
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const config = {
@@ -42,7 +41,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     loginMethods,
     appearance: {
       theme: "light" as const,
-      accentColor: "#676FFF",
+      accentColor: "#676FFF" as const,
     },
     embeddedWallets: {
       createOnLogin: "users-without-wallets" as const,
@@ -51,9 +50,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <PrivyProvider
-      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID}
-      clientId={process.env.PRIVY_APP_SECRET}
-      config={config}
+      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
+      clientId={process.env.PRIVY_APP_SECRET!}
+      config={config as PrivyClientConfig}
     >
       {children}
     </PrivyProvider>
